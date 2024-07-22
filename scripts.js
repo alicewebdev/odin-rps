@@ -48,6 +48,11 @@ function humanWins(human, computer) {
             playRound(humanSelection, computerSelection);
             console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
         }
+        if (humanScore > computerScore){
+            console.log(You win the game!)
+        } else if (humanScore < computerScore){
+            console.log(You lose the game!)
+        } else {console.log(You tied!)}
     }
 
     playGame()
