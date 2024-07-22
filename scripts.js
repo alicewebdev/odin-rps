@@ -14,3 +14,6 @@ function getHumanChoice(){
         {alert("Please enter rock, paper or scissors.");
         getHumanChoice();}
 }
+
+let humanScore = 0;
+let computerScore = 0;
