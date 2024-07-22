@@ -15,9 +15,6 @@ function getHumanChoice(){
         getHumanChoice();}
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
 function humanWins(human, computer) {
     return (
       (human === "Rock" && computer === "Scissors") ||
@@ -26,21 +23,31 @@ function humanWins(human, computer) {
     );
   }
 
-function playRound(humanResult, computerChoice){
-    if (humanResult === computerChoice) {
-        console.log(`You tied! Both chose ${humanResult}`);
-      } 
-    else if (humanWins(humanResult, computerChoice)) {
-        humanScore++;
-        console.log(`You win! ${humanResult} beats ${computerChoice}`);
-      }
-    else {
-        computerScore++;
-        console.log(`Computer wins! ${computerChoice} beats ${humanResult}`);
-      }
-}
+    let humanScore = 0;
+    let computerScore = 0;
+    
+    function playRound(humanResult, computerChoice){
+        if (humanResult === computerChoice) {
+            console.log(`You tied! Both chose ${humanResult}`);
+          } 
+        else if (humanWins(humanResult, computerChoice)) {
+            humanScore++;
+            console.log(`You win! ${humanResult} beats ${computerChoice}`);
+          }
+        else {
+            computerScore++;
+            console.log(`Computer wins! ${computerChoice} beats ${humanResult}`);
+          }
+    }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+    function playGame(){
+        for (let i = 0; i < 5; i++) {
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
+        }
+    }
+
+    playGame()
